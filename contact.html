@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Us">
+    <title>Contact Us</title>
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Prevent form submission
+
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let message = document.getElementById("message").value.trim();
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (name === "") {
+                alert("Please enter your name.");
+                return;
+            }
+
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            if (message === "") {
+                alert("Please enter your message.");
+                return;
+            }
+
+            alert("Form submitted successfully!");
+            document.getElementById("contactForm").reset();
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Get in Touch</h2>
+        <form id="contactForm" onsubmit="validateForm(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required placeholder="Your Name"><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required placeholder="Your Email"><br><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" required placeholder="Your Message"></textarea><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Travel Blog</p>
+    </footer>
+</body>
+</html>
